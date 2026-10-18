@@ -79,9 +79,8 @@ config = {
     can_close : 0,
     archive : "game",
     gui_debug : 1,
-    // Çalışma dosyaları oyunla AYNI yerde: dışarıdaki bir
-    // siteye bağımlılık yok; GitHub Pages'te hangi klasörde olursa olsun çalışır.
-    cdn : new URL("cdn/0.9.3/", document.baseURI).href,
+    # Doğrudan resmi Pygame Web CDN adresine sabitlendi (404 hatasını önler)
+    cdn : "https://pygame-web.github.io/cdn/0.9.3/",
     autorun : 0,
     PYBUILD : "3.12",
     fb_ar   :  1.7777,
