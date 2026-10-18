@@ -20,14 +20,10 @@ async def custom_site():
     platform.window.evoStatus("Oyun açılıyor...")
     import tarfile
     
-    # Güvenli arşiv açma kontrolü
-    archive_path = "game.tar.gz"
-    if platform.exists(archive_path):
-        async with platform.fopen(archive_path, "rb") as archive:
-            if archive:
-                tar = tarfile.open(fileobj=archive, mode="r:gz")
-                tar.extractall(path=appdir.as_posix(), filter='tar')
-                tar.close()
+    async with platform.fopen("game.tar.gz", "rb") as archive:
+        tar = tarfile.open(fileobj=archive, mode="r:gz")
+        tar.extractall(path=appdir.as_posix(), filter='tar')
+        tar.close()
 
     platform.run_main(PyConfig, loaderhome= appdir / "assets", loadermain=None)
 
